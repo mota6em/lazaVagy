@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A lenyeg hogy mining laza vagy teso!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>A lenyeg hogy mining laza vagy teso!</h1>
+    <video id="localVideo" controls>
+        <source src="laza.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <button onclick="downloadVideo()">Download</button>
+    <button onclick="toggleFullScreen()">Full Screen</button>
+
+    <script>
+        function downloadVideo() {
+            const link = document.createElement('a');
+            link.href = './laza.mp4'; // Path to your local video file
+            link.download = './laza.mp4'; // File name for download
+            link.click();
+        }
+
+        function toggleFullScreen() {
+            const video = document.getElementById('localVideo');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen(); // For Safari
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen(); // For IE/Edge
+            }
+        }
+    </script>
+</body>
+</html>
